@@ -5,3 +5,8 @@
 ```ps
 update-database
 ```
+2. Creating Table
+```ps
+add-migration AddCategoryTableToDb
+update-database
+```
