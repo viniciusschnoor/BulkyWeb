@@ -1,1 +1,35 @@
-﻿<h1>Category List</h1>
+﻿@model List<Category>
+
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-dark">@ViewData["Title"]</h2>
+        </div>
+    </div>
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                @*<th style="text-align:right" scope="col">#</th>*@
+                <th style="text-align:center" scope="col">Category Name</th>
+                <th style="text-align:center" scope="col">Display Order</th>
+                <th style="text-align:center" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderByDescending(u => u.DisplayOrder))
+            {
+                <tr>
+                    @* <th style="text-align:right" scope="row">@obj.CategoryId</th> *@
+                    <td>@obj.Name</td>
+                    <td style="text-align:right">@obj.DisplayOrder</td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
