@@ -9,6 +9,11 @@
         <div class="col-6">
             <h2 class="text-dark">@ViewData["Title"]</h2>
         </div>
+        <div class="col-6 d-flex">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-success ms-auto align-self-baseline">
+                <i class="bi bi-bookmark-plus-fill"></i> Create Category
+            </a>
+        </div>
     </div>
     <table class="table table-hover table-striped table-bordered">
         <thead>
