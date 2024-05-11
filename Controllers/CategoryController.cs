@@ -16,5 +16,12 @@ namespace BulkyWeb.Controllers
             List<Category> objCategoryList = _context.Categories.ToList();
             return View(objCategoryList);
         }
+
+        #region CRUD
+        public IActionResult Create()
+        {
+            return View();
+        }
+        #endregion
     }
 }
