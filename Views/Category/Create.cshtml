@@ -13,7 +13,11 @@
             <h2 class="text-primary text-success">@ViewData["Title"]</h2>
             @if (!ViewData.ModelState.IsValid)
             {
-                <div asp-validation-summary="All"></div>
+                <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <i class="bi bi-exclamation-octagon-fill"></i>
+                    <strong>Pay attention!</strong>
+                    <div asp-validation-summary="All" class="mt-4"></div>
+                </div>
             }
             <div class="mb-3 row p-1">
                 <label asp-for="Name"></label>
