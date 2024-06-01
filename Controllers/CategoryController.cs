@@ -49,21 +49,21 @@ namespace BulkyWeb.Controllers
             }
             return View(categoryFromDb);
         }
-        //[HttpPost]
-        //public IActionResult Edit(Category obj)
-        //{
-        //    if (obj.Name == obj.DisplayOrder.ToString())
-        //    {
-        //        ModelState.AddModelError("name", "The Display Order cannot exactly match the Name.");
-        //    }
-        //    if (ModelState.IsValid && obj.CategoryId == 0)
-        //    {
-        //        _context.Categories.Update(obj);
-        //        _context.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Edit(Category obj)
+        {
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("name", "The Display Order cannot exactly match the Name.");
+            }
+            if (ModelState.IsValid && obj.CategoryId != 0)
+            {
+                _context.Categories.Update(obj);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
         #endregion
     }
 }
