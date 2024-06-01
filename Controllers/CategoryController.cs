@@ -43,8 +43,6 @@ namespace BulkyWeb.Controllers
                 return NotFound();
             }
             Category? categoryFromDb = _context.Categories.Find(categoryId);
-            //Category? categoryFromDb = _context.Categories.FirstOrDefault(u=>u.CategoryId == categoryId);
-            //Category? categoryFromDb = _context.Categories.Where(u=>u.CategoryId == categoryId).FirstOrDefault();
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -60,7 +58,7 @@ namespace BulkyWeb.Controllers
         //    }
         //    if (ModelState.IsValid && obj.CategoryId == 0)
         //    {
-        //        _context.Categories.Add(obj);
+        //        _context.Categories.Update(obj);
         //        _context.SaveChanges();
         //        return RedirectToAction("Index");
         //    }

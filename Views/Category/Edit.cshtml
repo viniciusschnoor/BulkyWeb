@@ -1,0 +1,50 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Edit Category";
+}
+
+<form method="post">
+    <div class="card text-left">
+        <div class="card-header text-center bg-info text-light">
+            Category
+        </div>
+        <div class="card-body">
+            <h2 class="text-primary text-info">@ViewData["Title"]</h2>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <i class="bi bi-exclamation-octagon-fill"></i>
+                    <strong>Pay attention!</strong>
+                    <div asp-validation-summary="All" class="mt-4"></div>
+                </div>
+            }
+            <div class="mb-3 row p-1">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="DisplayOrder"></label>
+                <input asp-for="DisplayOrder" class="form-control" />
+                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="card-footer text-body-secondary">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-info form-control"><i class="bi bi-check-circle"></i> Update</button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a asp-controller="Category" asp-action="Index" class="btn btn-secondary form-control"><i class="bi bi-arrow-left-circle"></i> Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
